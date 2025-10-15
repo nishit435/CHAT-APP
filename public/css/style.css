@@ -75,6 +75,7 @@ h3 {
   flex-direction: row;
   flex-grow: 1;
   overflow: hidden;
+  min-height: 0;
 }
 
 .chat-sidebar {
