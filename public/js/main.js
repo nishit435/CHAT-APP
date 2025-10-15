@@ -166,10 +166,9 @@ socket.on("roomUsers", ({ room, users }) => {
 
 // Message from server
 socket.on("message", (message) => {
-  console.log(message);
-  outputMessage(message);
+  outputMessage(message); // Add the message to the window
 
-  // Scroll down
+  // Scroll down to the bottom
   chatMessages.scrollTop = chatMessages.scrollHeight;
 });
 
