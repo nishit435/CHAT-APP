@@ -3,7 +3,7 @@ const http = require("http");
 const express = require("express");
 const socketio = require("socket.io");
 const formatMessage = require("./utils/messages");
-
+const cors = require("cors");
 require("dotenv").config();
 const {
   userJoin,
@@ -13,8 +13,14 @@ const {
 } = require("./utils/users");
 
 const app = express();
+app.use(cors());
 const server = http.createServer(app);
-const io = socketio(server);
+const io = socketio(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
+});
 
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));
